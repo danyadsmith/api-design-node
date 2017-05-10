@@ -26,11 +26,6 @@ tigerRouter.get('/', function(req, res){
   res.json(tigers);
 });
 
-tigerRouter.get('/:id', function(req, res){
-  var tiger = req.tiger;
-  res.json(tiger || {});
-});
-
 tigerRouter.post('/', updateId, function(req, res) {
   var tiger = req.body;
 
@@ -39,6 +34,10 @@ tigerRouter.post('/', updateId, function(req, res) {
   res.json(tiger);
 });
 
+tigerRouter.get('/:id', function(req, res){
+  var tiger = req.tiger;
+  res.json(tiger || {});
+});
 
 tigerRouter.put('/:id', function(req, res) {
   var update = req.body;
