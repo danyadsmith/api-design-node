@@ -1,4 +1,5 @@
 module.exports = {
   // disbable logging for testing
-  logging: false
+  env: 'test',
+  logging: true
 };

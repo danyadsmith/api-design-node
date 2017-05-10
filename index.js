@@ -13,6 +13,7 @@ var app = require('./server/server');
 var logger = require('./server/util/logger');
 
 app.listen(config.port);
+logger.log('RUNNING SERVER ENVIRONMENT:', config.env);
 logger.log('listening on http://localhost:' + config.port);
 
 
