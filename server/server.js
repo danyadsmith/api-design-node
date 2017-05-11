@@ -29,8 +29,13 @@ app.use(bodyParser.json());
 
 
 app.param('id', function(req, res, next, id) {
-  // fill this out to find the lion based off the id
-  // and attach it to req.lion. Rember to call next()
+  var lion = _.find(lions, {id: req.params.id});
+  if (lion) {
+    req.lion = lion;
+    next();
+  } else {
+    req.send();
+  }
 });
 
 app.get('/lions', function(req, res){
@@ -44,9 +49,7 @@ app.get('/lions/:id', function(req, res){
 
 app.post('/lions', updateId, function(req, res) {
   var lion = req.body;
-
   lions.push(lion);
-
   res.json(lion);
 });
 
@@ -63,6 +66,12 @@ app.put('/lions/:id', function(req, res) {
   } else {
     var updatedLion = _.assign(lions[lion], update);
     res.json(updatedLion);
+  }
+});
+
+app.use(function (err, req, res, next) {
+  if (err) {
+    console.log(err);
   }
 });
 
