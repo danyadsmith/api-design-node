@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 
+mongoose.connect('mongodb://localhost/tasks');
+
 // connect to a database so the below will work.
 // what's happening is that we're createing a new schema
 // and making a todos collection and a Todo model.
@@ -19,6 +21,6 @@ var Todo = mongoose.model('todo', TodoSchema);
 Todo.create({
   name: 'clean up your room!!!',
   completed: false
-}).then(function(err, todo) {
+}).then(function (err, todo) {
   console.log(err, todo);
 });
