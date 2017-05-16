@@ -1,5 +1,8 @@
 module.exports = {
   // disbable logging for testing
   env: 'test',
-  logging: true
+  logging: false,
+  db: {
+    url: 'mongodb://localhost/nodeblog-test'
+  }
 };
