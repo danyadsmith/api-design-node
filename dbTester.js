@@ -12,6 +12,8 @@ mongoose.connect('mongodb://localhost/tasks');
 // run node db.Tester to execute this file
 // MAKE SURE MONGOD is RUNNING
 
+mongoose.connect('mongodb://localhost/taskmaster');
+
 var TodoSchema = new mongoose.Schema({
   name: String,
   completed: Boolean
